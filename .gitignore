@@ -1,0 +1,22 @@
+# Node
+node_modules/
+.expo/
+dist/
+npm-debug.log*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+
+# Datasets
+*.csv
+resume_training_data*
+*.pdf
+*.docx
+
+# OS
+.DS_Store
+Thumbs.db
