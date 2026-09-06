@@ -103,7 +103,10 @@ export default function App() {
         endpoint = '/compare_bulk';
       }
 
-      const BACKEND_URL = Platform.OS === 'android' ? `http://10.0.2.2:8000${endpoint}` : `http://localhost:8000${endpoint}`;
+      const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL 
+        ? `${process.env.EXPO_PUBLIC_BACKEND_URL}${endpoint}`
+        : (Platform.OS === 'android' ? `http://10.0.2.2:8000${endpoint}` : `http://localhost:8000${endpoint}`);
+        
       const response = await axios.post(BACKEND_URL, formData, { headers: { 'Content-Type': 'multipart/form-data' }});
       
       if (mode === 'applicant') setResults(response.data);
